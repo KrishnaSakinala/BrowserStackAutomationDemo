@@ -65,19 +65,17 @@ public class BrowserStackWebDemoWithJson extends BaseTest
 	public void verifyUserRegistration() throws InterruptedException
 	{
 		Register register = PageFactory.initElements(driver, Register.class);
-		test=extent.createTest("Verify User Registration - "+"("+os+" - "+PlatformVersion+" - "+Browser+" - "+BrowserVersion+" - "+Resolution+")");
+		test=extent.createTest("Verify User Registration"+"("+os+" - "+PlatformVersion+" - "+Browser+" - "+BrowserVersion+" - "+Resolution+")");
 		register.fillRegistrationform();
 		test.log(Status.INFO, "User Registration Test Case has been Verified");
-		test.log(Status.PASS, "verifyUserRegistrationForm Success");
 	}
 	
 	@Test
 	public void verifyPhotoUpload()
 	{
 		Register register = PageFactory.initElements(driver, Register.class);
-		test=extent.createTest("verifyPhotoUpload - "+"("+os+" - "+PlatformVersion+" - "+Browser+" - "+BrowserVersion+" - "+Resolution+")");
+		test=extent.createTest("verifyPhotoUpload"+"("+os+" - "+PlatformVersion+" - "+Browser+" - "+BrowserVersion+" - "+Resolution+")");
 		register.photoUpload();
 		test.log(Status.INFO, "Photo Uploaded Successfully");
-		test.log(Status.PASS, "verifyPhotoUpload Sucess");
 	}
 }
