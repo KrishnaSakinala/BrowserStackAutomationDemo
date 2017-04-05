@@ -64,16 +64,5 @@ public class BrowserStackMobileDemoWithJson extends BaseTest
 		register.fillRegistrationform();
 		test.log(Status.INFO, "User Registration Test Case has been Verified");
 	}
-	
-	@Test
-	public void verifyPhotoUpload()
-	{
-		Register register = PageFactory.initElements(driver, Register.class);
-		test=extent.createTest("verifyPhotoUpload"+"("+Platform+" - "+Device+" - "+BrowserName+")");
-		register.photoUpload();
-		test.log(Status.INFO, "Photo Uploaded Successfully");
-	}
-	
-	
 }
 
