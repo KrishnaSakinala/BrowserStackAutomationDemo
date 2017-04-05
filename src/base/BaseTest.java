@@ -20,8 +20,8 @@ public class BaseTest
 {
 	public static JSONParser parser;
 	public static JSONArray jsonArray;
-	public static final String USERNAME = "kreshna1"; 
-	public static final String AUTOMATE_KEY = "32G6b5JL9XTFsFoYzSEh"; 
+	public static final String USERNAME = "sompalliharikant1"; 
+	public static final String AUTOMATE_KEY = "Yc7BnY1EQzqyM3xzYx1m"; 
 	public static final String URL = "http://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
 	public static JSONObject j;
 	protected static WebDriver driver;

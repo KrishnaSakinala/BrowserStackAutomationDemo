@@ -5,19 +5,16 @@
     <classes>
       <class name="testcases.BrowserStackWebDemoWithJson">
         <methods>
-          <include name="setUp"/>
           <include name="verifyPhotoUpload"/>
           <include name="verifyUserRegistration"/>
-          <include name="getResult"/>
         </methods>
       </class> <!-- testcases.BrowserStackWebDemoWithJson -->
       <class name="testcases.BrowserStackMobileDemoWithJson">
         <methods>
           <include name="verifyPhotoUpload"/>
           <include name="setUp"/>
-          <include name="tearDown"/>
+          <include name="verifyUserRegistration"/>
           <include name="init"/>
-          <include name="getResult"/>
         </methods>
       </class> <!-- testcases.BrowserStackMobileDemoWithJson -->
     </classes>
