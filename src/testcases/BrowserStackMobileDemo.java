@@ -1,4 +1,4 @@
-package com.evoke.browserstack;
+package testcases;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,14 +11,21 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import pages.Register;
+import base.BaseTest;
+
 import com.aventstack.extentreports.Status;
 
-public class BrowserStackMobileDemoWithJson extends BaseTest
+public class BrowserStackMobileDemo extends BaseTest
 {
+	String BrowserName = null;
+	String Platform;
+	String Device;
 	@BeforeClass
 	public void setUp() throws FileNotFoundException, IOException, ParseException
 	{
@@ -30,9 +37,9 @@ public class BrowserStackMobileDemoWithJson extends BaseTest
 		{
 		    j=(JSONObject)jsonArray.get(i);
 		    		    
-		    String BrowserName = (String) j.get("browserName");
-		    String Platform = (String) j.get("platform");
-		    String Device = (String) j.get("device");
+		    BrowserName = (String) j.get("browserName");
+		    Platform = (String) j.get("platform");
+		    Device = (String) j.get("device");
 		    
 		    System.out.println("Run no."+(i+1));
 		    DesiredCapabilities caps = new DesiredCapabilities();
@@ -45,30 +52,17 @@ public class BrowserStackMobileDemoWithJson extends BaseTest
 		    caps.setCapability("build","BrowserCompatibility_SequentialRuns");
 		    
 		    driver = new RemoteWebDriver(new URL(URL), caps);
-		    driver.get("http://www.evoketechnologies.com/");
+		    driver.get("http://demo.automationtesting.in/Register.html");
 		}
 	}
 	
 	@Test
-	public void titleVerification()
+	public void verifyUserRegistration() throws InterruptedException
 	{
-		test = extent.createTest("titleVerification");
-		String actualTitle = "IT Services | Software Consulting & Outsourcing";
-		String expectedTitle = driver.getTitle();
-		test.log(Status.INFO,"Getting the Website Title :"+expectedTitle);
-		Assert.assertEquals(expectedTitle, actualTitle);
+		Register register = PageFactory.initElements(driver, Register.class);
+		test=extent.createTest("Verify User Registration"+"("+Platform+" - "+Device+" - "+BrowserName+")");
+		register.fillRegistrationform();
+		test.log(Status.INFO, "User Registration Test Case has been Verified");
 	}
-	
-	@Test
-	public void urlVerification()
-	{
-		test = extent.createTest("urlVerification");
-		String actualUrl = "http://www.evoketechnologies.com/";
-		String expectedUrl = driver.getCurrentUrl();
-		test.log(Status.INFO,"Getting the Website Url :"+expectedUrl);
-		Assert.assertEquals(expectedUrl, actualUrl);
-	}
-	
-	
 }
 

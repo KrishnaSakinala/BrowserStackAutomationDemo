@@ -21,7 +21,7 @@ import base.BaseTest;
 
 import com.aventstack.extentreports.Status;
 
-public class BrowserStackWebDemoWithJson extends BaseTest
+public class BrowserStackWebDemo extends BaseTest
 {
 	String Browser;
 	String BrowserVersion;
